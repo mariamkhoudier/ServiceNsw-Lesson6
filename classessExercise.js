@@ -43,7 +43,7 @@
 //6- Create a method in the class Owner called getFullName that takes no arguments and returns the full name of the owner
 class Owner {
     givenName;
-    constructor (givenName, familyName, id) {
+    constructor(givenName, familyName, id) {
         this.givenName = givenName;
         this.familyName = familyName;
         this.id = id
@@ -65,16 +65,17 @@ class Pet {
     }
 
     static getOwnerById(pet, owners) {
-        let owner=owners.find((owner)=>{
-            return owner.id==pet.ownerId;
+        let owner = owners.find((owner) => {
+            return owner.id == pet.ownerId;
         });
-        if(owner==undefined){
+        if (owner == undefined) {
             return "Sorry cann't find your owner ";
         }
-        else {return owner.getFullName();
+        else {
+            return owner.getFullName();
 
         }
-        
+
     }
 
 
@@ -82,14 +83,47 @@ class Pet {
 
 
 let pet = new Pet("Rex", 6, 2323);
-let pet2= new Pet("Rexi", 6, 2431);
+let pet2 = new Pet("Rexi", 6, 2431);
 let pet3 = new Pet("Rexy", 6, 5555);
 
-let owner= new Owner("Wael","Emara", 2323);
-let owner2= new Owner("Mariam","Kh",2431);
-let owner3= new Owner ("Maria", "Co", 1234);
+let owner = new Owner("Wael", "Emara", 2323);
+let owner2 = new Owner("Mariam", "Kh", 2431);
+let owner3 = new Owner("Maria", "Co", 1234);
 
-console.log(Pet.getOwnerById(pet, [owner,owner2,owner3]));
-console.log(Pet.getOwnerById(pet3, [owner,owner2,owner3]));
+console.log(Pet.getOwnerById(pet, [owner, owner2, owner3]));
+console.log(Pet.getOwnerById(pet3, [owner, owner2, owner3]));
 
-//8- 
+//8- Create a class called Square with a single property, sideLength and create a constructor that assigns that value
+//9-Create a getter that returns the area of the Square (hint, the area is sideLength * sideLength)
+//10- Create a setter for area that sets the sideLength for the given area (hint, use the Math.sqrt function to retrieve the square
+// root of the area and assign it as the sideLength)
+
+class Square {
+    constructor(sidelenght) {
+        this.sidelenght = sidelenght;
+    }
+
+    get area() {
+        return this.sidelenght * this.sidelenght
+    }
+
+    set area(v) {
+        this.sidelenght = Math.sqrt(v);
+    }
+
+    setArea(value) {
+        this.sidelenght = Math.sqrt(v);
+    }
+
+}
+
+let square = new Square(20);
+
+console.log(square.area);
+square.area = 64;
+square.setArea(64);
+
+console.log(square);
+
+
+
